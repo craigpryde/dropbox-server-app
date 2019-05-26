@@ -17,7 +17,7 @@ import config from "../../../config";
 export const listAllDirectories = (baseDir) => {
     return new Promise((resolve, reject) => {
         const params = {
-            pageSize: 999999,
+            pageSize: 1000,
             q: `${(baseDir) ? "trashed = false and '" + baseDir + "' in parents" : 'trashed = false'}`
         };
     
