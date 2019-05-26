@@ -1,4 +1,4 @@
-#Dropbox API Config
+# Dropbox API Config
 Below is the breakdown of how to setup the app to support the dropbox API. This should be quick and straight forward, We simply need to set some properties within the config and create an API Access token within dropbox.
 
 ---------------------------------------
