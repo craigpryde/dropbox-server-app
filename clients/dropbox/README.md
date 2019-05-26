@@ -22,10 +22,13 @@ With this configuration all files will be uploaded into an App folder, this can 
 ---------------------------------------
 ### Configure The Application
 Now we need to set the desired options within our apps config file. To do this ensure you have the config in the root of the app open:
+
 ```
     sudo nano config.js
 ```
+
 Then fill in the following properties:
+
 | Property | Description | Value                 |
 |----------|-------------|-----------------------|
 | dropbox  | Configuration options for the dropbox side of the app. | Object  |
