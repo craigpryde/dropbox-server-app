@@ -1,0 +1,41 @@
+{
+  "name": "server-dropbox-app",
+  "version": "1.0.0",
+  "description": "Node js app created to be used as a cron job to backup a server to a cloud service.",
+  "main": "index.js",
+  "author": "Craig Pryde (https://github.com/craigpryde)",
+  "keywords": [
+    "server",
+    "dropbox",
+    "google",
+    "drive",
+    "backup"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/craigpryde/dropbox-server-app"
+  },
+  "bugs": {
+    "url": "https://github.com/craigpryde/dropbox-server-app/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "build": "node -r esm index.js",
+    "schedule": "node -r esm  schedule.js"
+  },
+  "dependencies": {
+    "archiver": "3.0.0",
+    "dropbox": "4.0.17",
+    "esm": "3.2.22",
+    "express": "4.17.1",
+    "googleapis": "40.0.0",
+    "isomorphic-fetch": "2.2.1",
+    "moment": "2.24.0",
+    "node-cron": "2.0.3",
+    "open": "6.3.0",
+    "rimraf": "2.6.3"
+  }
+}
