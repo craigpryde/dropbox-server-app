@@ -3,8 +3,20 @@ Below is the breakdown of how to setup the app to support the dropbox API. This 
 
 ---------------------------------------
 ### Create Access Token Within Dropbox
+1. Log into your dropbox account:
+    [Dropbox Login](https://www.dropbox.com)
+2. Access The Developers Console:
+    [Developers Console](https://www.dropbox.com/developers/apps)
+3. Create A New App
+    * Select Dropbox API
+    * Then choose "App Folder" for the type of access we will need.
+    * Name the app
+    * Click Create App
+4. Click Generate Access Token
+5. Copy Access Token To The App Config (Shown Below).
+6. Thats it we now have a Dropbox API accessible app set up.
 
-
+With this configuration all files will be uploaded into an App folder, this can be found within the normal [Dropbox website](https://www.dropbox.com).
 
 
 ---------------------------------------
