@@ -39,6 +39,7 @@ Lets set the core app settings:
 | app.srcDir  | The source directory to be backed up.  |   String (__dirname + '../var/apps') |
 | app.destDir | The location for the local back up to be stored. | String (__dirname + '/backups' |
 | app.cleanUp | Dictates if the back up folder should be deleted after upload finishes |  true / false |
+| use | Identifies Which Service To Use | google / dropbox |
 
 ---------------------------------------
 Now follow the intructions for your desired service to set up the config file.
