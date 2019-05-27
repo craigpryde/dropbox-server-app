@@ -62,10 +62,9 @@ Example with linux cron job:
     sudo crontab -e
 
     # Add command to run every day at midnight
-    npm install
+    0 0 * * * /usr/bin/node /tasks/server-backup-app/schedule.js
 
-    # Run the scheduler
-    npm run schedule
+    # Save And Thats It, The Script will now run and backup the server each day at midnight.
 ```
 
 The task will now run every day at midnight.
