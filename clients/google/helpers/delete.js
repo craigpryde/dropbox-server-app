@@ -9,11 +9,19 @@ import { drive } from "../auth/client";
  * @returns {Promsie} - Promise, Resolves if success and rejects if error.
  * @example
  * deleteFiles([ { path: "/test/test.txt"} ])
- * .then((response) => console.log("Async Job ID: ", response))
+ * .then((response) => console.log("File deleted", response))
  * .catch((error) => console.log(error));
  */
-export const deleteFiles = (files) => {
-    return new Promise((resolve, reject) => {
-        
-    });
+export async function deleteFiles(files) {
+    for(const file of files) {
+        await drive.files.delete({
+            'fileId': file.fileId
+        })
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => { 
+            throw Error(error)
+        });
+    }
 }
