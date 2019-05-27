@@ -18,6 +18,7 @@ export const listAllDirectories = (baseDir) => {
     return new Promise((resolve, reject) => {
         const params = {
             pageSize: 1000,
+            fields: "files(id,mimeType,name,createdTime)",
             q: `${(baseDir) ? "trashed = false and '" + baseDir + "' in parents" : 'trashed = false'}`
         };
     

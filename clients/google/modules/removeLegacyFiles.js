@@ -29,24 +29,24 @@ import config from "../../../config";
  * .catch((error) => console.log(error));
  */
 async function handleDirectories(directories) {
-    // const numToKeep = config.dropbox.numToKeep;
-    // const queue = new Queue();
+    const numToKeep = config.dropbox.numToKeep;
+    const queue = new Queue();
 
-    // for(const currentDirectory of directories) {
-    //     await listAllDirectories(currentDirectory.path_lower)
-    //     .then((files) => {
+    for(const currentDirectory of directories) {
+        await listAllDirectories(currentDirectory.id)
+        .then((files) => {
 
-    //         if(files.length < numToKeep) return;
+            if(files.length < numToKeep) return;
     
-    //         const sortedFiles = files.sort((item1, item2) => new moment(item1.client_modified) - new moment(item2.client_modified)).reverse();
-    //         const itemsToRemove = sortedFiles.slice(numToKeep, sortedFiles.length);
+            const sortedFiles = files.sort((item1, item2) => new moment(item1.createdTime) - new moment(item2.createdTime)).reverse();
+            const itemsToRemove = sortedFiles.slice(numToKeep, sortedFiles.length);
             
-    //         queue.addItem(() => deleteFiles(itemsToRemove.map((item) => { return { path: item.path_lower}})));
-    //     });
-    // }
+            queue.addItem(() => deleteFiles(itemsToRemove.map((item) => { return { fileId: item.id}})));
+        });
+    }
 
-    // await queue.initQueue();
-    // return true; 
+    await queue.initQueue();
+    return true; 
 }
 
 /**
@@ -61,21 +61,22 @@ async function handleDirectories(directories) {
 export const removeLegacyFiles = () => {
     return new Promise((resolve, reject) => {
 
-        // listAllDirectories()
-        // .then((dirListing) => {
-        //     const directories = dirListing.filter((currentDirectory) => currentDirectory[".tag"] === "folder");
+        listAllDirectories(config.google.baseDir)
+        .then((dirListing) => {
 
-        //     if(directories.length < 1) {
-        //         resolve();
-        //         return;
-        //     }
+            const directories = dirListing.filter((currentDirectory) => currentDirectory.mimeType === "application/vnd.google-apps.folder");
 
-        //     handleDirectories(directories)
-        //     .then(() => { 
-        //         logToConsole("Legacy Files Will Clear Asynchronously");
-        //         resolve()
-        //     })
-        //     .catch((error) => reject(error));
-        // }); 
+            if(directories.length < 1) {
+                resolve();
+                return;
+            }
+
+            handleDirectories(directories)
+            .then(() => { 
+                logToConsole("Legacy Files Have Been Cleared.");
+                resolve()
+            })
+            .catch((error) => reject(error));
+        }); 
     })
 }
