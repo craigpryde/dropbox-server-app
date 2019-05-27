@@ -9,9 +9,9 @@ import dropbox from "../auth/client";
  * .then((listing) => console.log(listing))
  * .catch((error) => console.log(error));
  */
-export const listAllDirectories = () => {
+export const listAllDirectories = (path = '') => {
     return new Promise((resolve, reject) => {
-        dropbox.filesListFolder({path: ''})
+        dropbox.filesListFolder({path})
         .then(response => {
             resolve(response.entries);
         })

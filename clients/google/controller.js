@@ -1,7 +1,11 @@
 /* Dependences */
 import { prepDriveUpload } from "./modules/prepDriveUpload";
 import { uploadFiles } from "./modules/uploadFiles";
+import { removeLegacyFiles } from "./modules/removeLegacyFiles";
 import { logToConsole } from "../../helpers/logToConsole";
+
+/* Config */
+import config from "../../config";
 
 /**
  * Google Drive Controller - Handles uploading files to google drive.
@@ -29,7 +33,15 @@ export const controller = (filesToUpload) => {
             logToConsole("Starting Upload");
             uploadFiles(files)
             .then(() => {
-                resolve();
+                if(config.google.numToKeep) {
+                    removeLegacyFiles()
+                    .then(() => { 
+                        resolve()
+                    });
+                }
+                else {
+                    resolve();
+                }
             })
             .catch((error) => reject(error));
         })

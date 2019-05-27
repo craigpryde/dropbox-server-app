@@ -1,7 +1,11 @@
 /* Dependences */
 import { prepDropBox } from "./modules/prepDropbox";
 import { uploadFiles } from "./modules/uploadFiles";
+import { removeLegacyFiles } from "./modules/removeLegacyFiles";
 import { logToConsole } from "../../helpers/logToConsole";
+
+/* Config */
+import config from "../../config";
 
 /**
  * Dropbox Controller - Handles uploading files to dropbox.
@@ -29,7 +33,15 @@ export const controller = (filesToUpload) => {
             logToConsole("Starting Upload");
             uploadFiles(filesToUpload)
             .then(() => {
-                resolve();
+                if(config.dropbox.numToKeep) {
+                    removeLegacyFiles()
+                    .then(() => { 
+                        resolve()
+                    });
+                }
+                else {
+                    resolve();
+                }
             })
             .catch((error) => reject(error));
         })

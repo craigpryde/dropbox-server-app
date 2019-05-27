@@ -3,6 +3,7 @@ import fs from "fs";
 import { uploadLargeFile, uploadSmallFile } from "../helpers/uploads";
 import { Queue } from "../../../classes/Queue";
 
+/* Config */
 import config from "../../../config";
 
 // Create a queue for files to be uploaded
