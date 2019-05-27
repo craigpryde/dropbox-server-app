@@ -64,7 +64,7 @@ Example with linux cron job:
     # Add command to run every day at midnight
     0 0 * * * /usr/bin/node /tasks/server-backup-app/schedule.js
 
-    # Save And Thats It, The Script will now run and backup the server each day at midnight.
+    # Save to apply
 ```
 
 The task will now run every day at midnight.
