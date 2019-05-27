@@ -1,5 +1,7 @@
 # Server Backup App
-An application developed to be run as a background task on a server to backup all the sub directories of a desired location to a cloud service as zip files.
+An application developed to be run as a background task on a server to backup all the sub directories of a desired location to a cloud service as zip files. 
+
+ - Built with <3 using NodeJS
 
 #### Supported Cloud Services
 * Google Drive (API V3)
