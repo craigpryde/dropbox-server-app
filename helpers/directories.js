@@ -3,6 +3,9 @@ import fs from "fs";
 import archiver from "archiver";
 import { createTimestamp } from "./createTimestamp";
 
+/* Config */ 
+import config from "../config";
+
 /**
  * Takes a source path and returns an array of top level directories.
  * @function
@@ -85,7 +88,10 @@ export const compressDirectory = ({src, title, dest}) => {
         archive.pipe(output);
 
         // Loop through each stream and add the directory to the archive.
-        archive.directory(src, false);
+        archive.glob(`**`, {
+            cwd: src,
+            ignore: config.app.ignore
+        });
 
         // Finish archiving
         archive.finalize();

@@ -9,7 +9,8 @@ export default {
     app: {
         srcDir: __dirname + "/test", // Source of directories to be backed up.
         destDir: __dirname + "/backups", // Local destination folder for zipped backups
-        cleanUp: true // Should the app clean up the local backups
+        cleanUp: true, // Should the app clean up the local backups
+        ignore: [] // Files / directories to be excluded from the archive. (i.e ["node_modules/**"])
     },
     dropbox: {
         accessToken: "", // Dropbox API access token
