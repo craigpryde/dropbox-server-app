@@ -34,8 +34,7 @@
     "googleapis": "40.0.0",
     "isomorphic-fetch": "2.2.1",
     "moment": "2.24.0",
-    "node-cron": "2.0.3",
-    "open": "6.3.0",
-    "rimraf": "2.6.3"
+    "rimraf": "2.6.3",
+    "shelljs": "0.8.3"
   }
 }
