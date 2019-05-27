@@ -6,3 +6,4 @@ backups
 test
 .env
 private-key.json
+tests

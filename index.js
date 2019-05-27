@@ -1,5 +1,5 @@
 /* Dependencies */
-import { createBackupFiles } from "./modules/createBackupFiles";
+import { createArchives } from "./modules/createArchives";
 import { cleanUp } from "./modules/cleanUp";
 import { logToConsole } from "./helpers/logToConsole";
 
@@ -18,7 +18,7 @@ import config from "./config";
 const init = () => {
     logToConsole("Starting Archive");
 
-    createBackupFiles({ 
+    createArchives({ 
         sourceDir: config.app.srcDir, 
         destDir: config.app.destDir 
     })
