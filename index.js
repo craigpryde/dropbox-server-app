@@ -60,7 +60,3 @@ const finish = () => {
 }
 
 init();
-
-// TODO
-// Add check for file counts
-// Delete files > 5 that are old. Only keeep latest 5
