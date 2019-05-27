@@ -2,7 +2,7 @@
  * Shell Class - Handles all shell commands.
  * @class
  */
-export class Shell {
+class Shell {
     
     /**
      * Constructor for instance.
@@ -36,3 +36,5 @@ export class Shell {
         execNext();
     }
 }
+
+module.exports.Shell = Shell;

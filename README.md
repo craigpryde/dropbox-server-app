@@ -15,7 +15,7 @@ Built with <3 using NodeJS
 ### Getting Started
 To get started clone the repo and place it on your server. The recomended place for this is within the server root in a folder called tasks.
 ```
-    sudo mkdir /tasks && cd /tasks/server-dropbox-app
+    sudo mkdir /tasks && cd /tasks
 
     sudo git clone https://github.com/craigpryde/server-backup-app.git
 ```
@@ -58,10 +58,10 @@ Once you complete the set up on the server, We want to schedule the task to run 
 Example with linux cron job:
 
 ```
-    # Locate app root
-    cd /tasks/server-dropbox-app
+    # Load sudo crontab
+    sudo crontab -e
 
-    # Install Modules
+    # Add command to run every day at midnight
     npm install
 
     # Run the scheduler
