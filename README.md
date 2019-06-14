@@ -62,7 +62,7 @@ Example with linux cron job:
     sudo crontab -e
 
     # Add command to run every day at midnight
-    0 0 * * * /usr/bin/node /tasks/server-backup-app/schedule.js
+    0 0 * * * cd /tasks/server-backup-app && /usr/bin/node /tasks/server-backup-app/schedule.js
 
     # Save to apply
 ```
