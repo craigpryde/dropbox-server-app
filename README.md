@@ -24,6 +24,10 @@ Now we need to make that folder our current working directory.
 ```
     cd server-backup-app
 ```
+Install the required node modules for the app to work:
+```
+    sudo npm install
+```
 create the required config file for the app from the config.sample.js file
 ```
     sudo cp ./config.sample.js config.js
